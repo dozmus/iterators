@@ -6,9 +6,9 @@ import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 /**
- * An {@link Iterator<T>} which allows filtering the elements it contains, by a {@link Predicate<T>} filter.
+ * An {@link Iterator} which allows filtering the elements it contains, by a {@link Predicate} filter.
  *
- * @param <T> the generic type of the {@link Iterator<T>} to wrap
+ * @param <T> the generic type of the {@link Iterator} to wrap
  */
 public class FilterableIterator<T> implements Iterator<T> {
 

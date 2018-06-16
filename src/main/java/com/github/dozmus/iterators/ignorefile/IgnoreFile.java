@@ -36,7 +36,7 @@ public class IgnoreFile {
 
     /**
      * Returns the result of calling {@link #ignored(Path, List)} with the argument {@link Rule} as the single entry
-     * in the {@link List<Rule>}.
+     * in the {@link List}.
      *
      * @param path the file to check against the rule
      * @param rule the rule to check the path against
@@ -51,7 +51,7 @@ public class IgnoreFile {
      *
      * @param baseDirectory the base directory of the parsed rules
      * @param path the file to read
-     * @return returns the {@link List<Rule>} expressed in the argument file.
+     * @return returns the {@link List} expressed in the argument file.
      *
      * @throws IOException if an I/O error occurs
      */

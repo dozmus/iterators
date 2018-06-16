@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 /**
  * A thread-safe wrapper for {@link Iterator}.
  *
- * @param <T> the generic type of the {@link Iterator<T>} to wrap
+ * @param <T> the generic type of the {@link Iterator} to wrap
  */
 public class ConcurrentIterator<T> implements Iterator<T> {
 
@@ -25,7 +25,7 @@ public class ConcurrentIterator<T> implements Iterator<T> {
     }
 
     /**
-     * Returns {@link #it#hasNext()} in a thread-safe manner.
+     * Returns whether there is a next element in a thread-safe manner.
      */
     @Override
     public boolean hasNext() {
@@ -35,7 +35,7 @@ public class ConcurrentIterator<T> implements Iterator<T> {
     }
 
     /**
-     * Returns {@link #it#next()} in a thread-safe manner.
+     * Returns the next element in a thread-safe manner.
      *
      * @throws NoSuchElementException if there is no next element
      */
