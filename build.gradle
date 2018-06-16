@@ -1,4 +1,12 @@
 apply plugin: 'java-library'
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+group = "com.github.dozmus"
+archivesBaseName = rootProject.name
+version = "1.0-SNAPSHOT"
+description = "A collection of iterators and related utilities for Java."
+github_repo_url = 'https://github.com/dozmus/iterators'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -11,3 +19,65 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 }
 
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+signing {
+    sign configurations.archives
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            pom.project {
+                name rootProject.name
+                packaging 'jar'
+                description this.description
+                url github_repo_url
+
+                scm {
+                    connection 'scm:git:https://github.com/dozmus/iterators.git'
+                    developerConnection 'scm:git:ssh:https://github.com/dozmus/iterators.git'
+                    url github_repo_url
+                }
+
+                licenses {
+                    license {
+                        name 'MIT License'
+                        url 'https://opensource.org/licenses/mit-license.php'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'dozmus'
+                        name 'Deniz Ozmus'
+                        email 'dozmus@hotmail.com'
+                        url 'https://github.com/dozmus'
+                    }
+                }
+            }
+        }
+    }
+}

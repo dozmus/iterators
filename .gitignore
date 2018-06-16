@@ -2,5 +2,6 @@
 .idea
 build
 
-# Gradle folder
+# Gradle stuff
 .gradle
+gradle.properties
