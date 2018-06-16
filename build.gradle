@@ -6,7 +6,7 @@ group = "com.github.dozmus"
 archivesBaseName = rootProject.name
 version = "1.0-SNAPSHOT"
 description = "A collection of iterators and related utilities for Java."
-github_repo_url = 'https://github.com/dozmus/iterators'
+def github_repo_url = 'https://github.com/dozmus/iterators'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
