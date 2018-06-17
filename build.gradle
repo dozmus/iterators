@@ -4,7 +4,7 @@ apply plugin: 'signing'
 
 group = "com.github.dozmus"
 archivesBaseName = rootProject.name
-version = "1.0-SNAPSHOT"
+version = "0.0.1"
 description = "A collection of iterators and related utilities for Java."
 def github_repo_url = 'https://github.com/dozmus/iterators'
 
